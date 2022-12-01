@@ -1,5 +1,6 @@
 import {
   ArrowTopRightIcon,
+  ComponentInstanceIcon,
   CursorArrowIcon,
   ImageIcon,
   Pencil1Icon,
@@ -40,6 +41,10 @@ export const PrimaryTools = React.memo(function PrimaryTools() {
 
   const selectDrawTool = React.useCallback(() => {
     app.selectTool(TDShapeType.Draw)
+  }, [app])
+
+  const selectPolygonTool = React.useCallback(() => {
+    app.selectTool(TDShapeType.Polygon)
   }, [app])
 
   const selectArrowTool = React.useCallback(() => {
@@ -84,6 +89,15 @@ export const PrimaryTools = React.memo(function PrimaryTools() {
         id="TD-PrimaryTools-Pencil"
       >
         <Pencil1Icon />
+      </ToolButtonWithTooltip>
+      <ToolButtonWithTooltip
+        kbd={'7'}
+        label={intl.formatMessage({ id: 'polygon' })}
+        onClick={selectPolygonTool}
+        isActive={activeTool === TDShapeType.Polygon}
+        id="TD-PrimaryTools-Polygon"
+      >
+        <ComponentInstanceIcon />
       </ToolButtonWithTooltip>
       <ToolButtonWithTooltip
         kbd={'3'}

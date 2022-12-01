@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Tldraw, TldrawApp, useFileSystem } from '@tldraw/tldraw'
+import { Tldraw, TldrawApp, useFileSystem } from '@briostack/tldraw'
 import * as React from 'react'
 
 declare const window: Window & { app: TldrawApp }

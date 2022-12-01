@@ -5,6 +5,7 @@ import { DrawUtil } from './DrawUtil'
 import { EllipseUtil } from './EllipseUtil'
 import { GroupUtil } from './GroupUtil'
 import { ImageUtil } from './ImageUtil'
+import { PolygonUtil } from './PolygonUtil'
 import { RectangleUtil } from './RectangleUtil'
 import { StickyUtil } from './StickyUtil'
 import { TextUtil } from './TextUtil'
@@ -15,6 +16,7 @@ export const Rectangle = new RectangleUtil()
 export const Triangle = new TriangleUtil()
 export const Ellipse = new EllipseUtil()
 export const Draw = new DrawUtil()
+export const Polygon = new PolygonUtil()
 export const Arrow = new ArrowUtil()
 export const Text = new TextUtil()
 export const Group = new GroupUtil()
@@ -27,6 +29,7 @@ export const shapeUtils = {
   [TDShapeType.Triangle]: Triangle,
   [TDShapeType.Ellipse]: Ellipse,
   [TDShapeType.Draw]: Draw,
+  [TDShapeType.Polygon]: Polygon,
   [TDShapeType.Arrow]: Arrow,
   [TDShapeType.Text]: Text,
   [TDShapeType.Group]: Group,

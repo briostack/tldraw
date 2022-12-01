@@ -22,7 +22,7 @@
     "@liveblocks/client": "^0.17.7",
     "@liveblocks/react": "^0.17.7",
     "@tldraw/core": "*",
-    "@tldraw/tldraw": "*",
+    "@briostack/tldraw": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.3.0",

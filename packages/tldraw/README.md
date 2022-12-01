@@ -1,3 +1,11 @@
+Custom build by Briostack containing experimental work on a polygon tool.
+
+To build:
+
+- yarn build
+- add "import React from 'react';" to the top of index.mjs in the dist directory
+- npm publish --access public
+
 <div style="text-align: center; transform: scale(.5);">
   <img src="https://github.com/tldraw/tldraw/raw/main/assets/card-repo.png"/>
 </div>

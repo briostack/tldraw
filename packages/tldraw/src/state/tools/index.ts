@@ -4,6 +4,7 @@ import { DrawTool } from './DrawTool'
 import { EllipseTool } from './EllipseTool'
 import { EraseTool } from './EraseTool'
 import { LineTool } from './LineTool'
+import { PolygonTool } from './PolygonTool'
 import { RectangleTool } from './RectangleTool'
 import { SelectTool } from './SelectTool'
 import { StickyTool } from './StickyTool'
@@ -15,6 +16,7 @@ export interface ToolsMap {
   erase: typeof EraseTool
   [TDShapeType.Text]: typeof TextTool
   [TDShapeType.Draw]: typeof DrawTool
+  [TDShapeType.Polygon]: typeof PolygonTool
   [TDShapeType.Ellipse]: typeof EllipseTool
   [TDShapeType.Rectangle]: typeof RectangleTool
   [TDShapeType.Triangle]: typeof TriangleTool
@@ -32,6 +34,7 @@ export const tools: { [K in TDToolType]: ToolsMap[K] } = {
   erase: EraseTool,
   [TDShapeType.Text]: TextTool,
   [TDShapeType.Draw]: DrawTool,
+  [TDShapeType.Polygon]: PolygonTool,
   [TDShapeType.Ellipse]: EllipseTool,
   [TDShapeType.Rectangle]: RectangleTool,
   [TDShapeType.Triangle]: TriangleTool,

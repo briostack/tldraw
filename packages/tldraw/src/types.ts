@@ -190,6 +190,7 @@ export enum SessionType {
   TransformSingle = 'transformSingle',
   Brush = 'brush',
   Arrow = 'arrow',
+  Polygon = 'polygon',
   Draw = 'draw',
   Erase = 'erase',
   Rotate = 'rotate',
@@ -219,6 +220,7 @@ export type TDToolType =
   | 'erase'
   | TDShapeType.Text
   | TDShapeType.Draw
+  | TDShapeType.Polygon
   | TDShapeType.Ellipse
   | TDShapeType.Rectangle
   | TDShapeType.Triangle
@@ -288,6 +290,7 @@ export enum TDShapeType {
   Rectangle = 'rectangle',
   Triangle = 'triangle',
   Draw = 'draw',
+  Polygon = 'polygon',
   Arrow = 'arrow',
   Line = 'line',
   Text = 'text',
@@ -338,6 +341,13 @@ export interface TriangleShape extends TDBaseShape {
   size: number[]
   label?: string
   labelPoint?: number[]
+}
+
+export interface PolygonShape extends TDBaseShape {
+  type: TDShapeType.Polygon
+  points: number[][]
+  origPoint: number[]
+  isComplete: boolean
 }
 
 // The shape created with the arrow tool
@@ -406,6 +416,7 @@ export type TDShape =
   | EllipseShape
   | TriangleShape
   | DrawShape
+  | PolygonShape
   | ArrowShape
   | TextShape
   | GroupShape

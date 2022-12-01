@@ -2788,6 +2788,31 @@
     tsconfig-replace-paths "^0.0.11"
     zlib "^1.0.5"
 
+"@tldraw/tldraw@*":
+  version "1.26.2"
+  resolved "https://registry.yarnpkg.com/@tldraw/tldraw/-/tldraw-1.26.2.tgz#90e9cbe17eba843bf69c4ddfa53bcd0a9d6b9ca3"
+  integrity sha512-quNY068Nq6geN4oGvTyGBjILYMi/XpaV8DTPes/JFWxqKxfOLlj9hsziwug+zIjPDa2k9EO4Q+yc0+z1RSFI9A==
+  dependencies:
+    "@radix-ui/react-alert-dialog" "^1.0.0"
+    "@radix-ui/react-context-menu" "^1.0.0"
+    "@radix-ui/react-dialog" "^1.0.0"
+    "@radix-ui/react-dropdown-menu" "^1.0.0"
+    "@radix-ui/react-icons" "^1.1.1"
+    "@radix-ui/react-popover" "^1.0.0"
+    "@radix-ui/react-tooltip" "^1.0.0"
+    "@stitches/react" "^1.2.8"
+    "@tldraw/core" "^1.20.1"
+    "@tldraw/intersect" "^1.8.0"
+    "@tldraw/vec" "^1.8.0"
+    browser-fs-access "^0.31.0"
+    idb-keyval "^6.2.0"
+    perfect-freehand "^1.2.0"
+    react-error-boundary "^3.1.4"
+    react-hotkeys-hook "^3.4.7"
+    react-intl "^6.1.1"
+    tslib "^2.4.0"
+    zustand "^4.1.1"
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"

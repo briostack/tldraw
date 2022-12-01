@@ -1,11 +1,11 @@
 {
-  "name": "@tldraw/tldraw",
+  "name": "@briostack/tldraw",
   "version": "1.26.2",
   "description": "A tiny little drawing app (editor)",
-  "author": "@steveruizok",
+  "author": "@steveruizo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tldraw/tldraw.git"
+    "url": "https://github.com/briostack/tldraw.git"
   },
   "license": "MIT",
   "keywords": [
