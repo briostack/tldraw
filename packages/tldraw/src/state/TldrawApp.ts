@@ -3738,10 +3738,11 @@ export class TldrawApp extends StateManager<TDSnapshot> {
   }
 
   onZoom: TLWheelEventHandler = (info, e) => {
-    if (this.state.appState.status !== TDStatus.Idle) return
-    const delta = info.delta[2] / 50
-    this.zoomBy(delta, info.point)
-    this.onPointerMove(info, e as unknown as React.PointerEvent)
+    // if (this.state.appState.status !== TDStatus.Idle) return
+    // const delta = info.delta[2] / 50
+    // this.zoomBy(delta, info.point)
+    // this.onPointerMove(info, e as unknown as React.PointerEvent)
+    return
   }
 
   /* ----------------- Pointer Events ----------------- */
@@ -4194,7 +4195,7 @@ export class TldrawApp extends StateManager<TDSnapshot> {
       keepStyleMenuOpen: false,
       nudgeDistanceLarge: 16,
       nudgeDistanceSmall: 1,
-      showRotateHandles: true,
+      showRotateHandles: false,
       showBindingHandles: true,
       showCloneHandles: false,
       showGrid: false,

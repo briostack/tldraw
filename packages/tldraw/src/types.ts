@@ -348,6 +348,9 @@ export interface PolygonShape extends TDBaseShape {
   points: number[][]
   origPoint: number[]
   isComplete: boolean
+  size: number[]
+  label?: string
+  labelPoint?: number[]
 }
 
 // The shape created with the arrow tool
