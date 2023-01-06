@@ -7,6 +7,7 @@ import { ShapeNode } from '~components/Shape'
 import { ShapeIndicator } from '~components/ShapeIndicator'
 import { useSelection, useShapeTree, useTLContext } from '~hooks'
 import type { TLAssets, TLBinding, TLPage, TLPageState, TLShape } from '~types'
+import {PolygonHandles} from "~components/PolygonHandles/PolygonHandles";
 
 export interface PageProps<T extends TLShape, M extends Record<string, unknown>> {
   page: TLPage<T, TLBinding>
@@ -55,8 +56,11 @@ function _Page<T extends TLShape, M extends Record<string, unknown>>({
   let _hideCloneHandles = true
   let _isEditing = false
 
+  let _isPolygon = false
+
   // Does the selected shape have handles?
   let shapeWithHandles: TLShape | undefined = undefined
+  let polygonShape: TLShape | undefined = undefined
   const selectedShapes = selectedIds.map((id) => page.shapes[id])
 
   if (selectedShapes.length === 1) {
@@ -67,6 +71,10 @@ function _Page<T extends TLShape, M extends Record<string, unknown>>({
     _hideCloneHandles = hideCloneHandles || !utils.showCloneHandles
     if (shape.handles !== undefined && !_isEditing) {
       shapeWithHandles = shape
+    }
+    if (shape.type === 'polygon' && !_isEditing) {
+      _isPolygon = true
+      polygonShape = shape
     }
   }
 
@@ -109,6 +117,7 @@ function _Page<T extends TLShape, M extends Record<string, unknown>>({
         />
       )}
       {!hideHandles && shapeWithHandles && <Handles shape={shapeWithHandles} zoom={zoom} />}
+      {_isPolygon && <PolygonHandles shape={polygonShape} zoom={zoom} />}
     </>
   )
 }

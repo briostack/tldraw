@@ -35,7 +35,7 @@ export class PolygonTool extends BaseTool {
         previous.points.push(currentPoint)
       }
 
-      this.app.startSession(SessionType.Polygon, lastShapeId as string)
+      this.app.startSession(SessionType.Polygon, lastShapeId as string, true)
       this.app.completeSession()
       this.setStatus(Status.Idle)
     } else {
@@ -66,4 +66,8 @@ export class PolygonTool extends BaseTool {
     this.setStatus(Status.Idle)
     delete this.lastShapeId
   }
+
+  // onPointerMove: TLPointerEventHandler = (info, e) => {
+  //   console.log('pointer move on polygon tools', info)
+  // }
 }

@@ -10,10 +10,10 @@ import {
   Utils,
 } from '@tldraw/core'
 import Vec from '@tldraw/vec'
-import { CLONING_DISTANCE, DEAD_ZONE } from '~constants'
-import { TLDR } from '~state/TLDR'
-import { BaseTool } from '~state/tools/BaseTool'
-import { SessionType, TDShapeType } from '~types'
+import {CLONING_DISTANCE, DEAD_ZONE} from '~constants'
+import {TLDR} from '~state/TLDR'
+import {BaseTool} from '~state/tools/BaseTool'
+import {SessionType, TDShapeType} from '~types'
 
 enum Status {
   Idle = 'idle',
@@ -243,7 +243,7 @@ export class SelectTool extends BaseTool<Status> {
 
   // Pointer Events (generic)
 
-  onPointerMove: TLPointerEventHandler = () => {
+  onPointerMove: TLPointerEventHandler = (info) => {
     const { originPoint, currentPoint } = this.app
 
     if (this.app.readOnly && this.app.isPointing) {
@@ -330,12 +330,16 @@ export class SelectTool extends BaseTool<Status> {
               this.app.startSession(SessionType.Handle, selectedShape.id, this.pointedHandleId)
               this.app.updateSession()
             } else {
-              this.app.startSession(
-                SessionType.Arrow,
-                selectedShape.id,
-                this.pointedHandleId,
-                false
-              )
+              if (selectedShape.type === 'polygon') {
+                this.app.startSession(SessionType.Polygon, selectedShape.id, false, info)
+              } else {
+                this.app.startSession(
+                    SessionType.Arrow,
+                    selectedShape.id,
+                    this.pointedHandleId,
+                    false
+                )
+              }
               this.app.updateSession()
             }
           }

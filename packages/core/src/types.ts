@@ -79,6 +79,8 @@ export interface TLShape {
   isLocked?: boolean
   isGenerated?: boolean
   isAspectRatioLocked?: boolean
+  points?: number[][]
+  origPoint?: number[]
 }
 
 export interface TLComponentProps<T extends TLShape, E = any, M = any> {

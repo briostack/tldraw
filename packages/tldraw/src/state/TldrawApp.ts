@@ -2525,8 +2525,8 @@ export class TldrawApp extends StateManager<TDSnapshot> {
    * Zoom out by 25%
    */
   zoomIn = (): this => {
-    const i = Math.round((this.camera.zoom * 100) / 25)
-    const nextZoom = TLDR.getCameraZoom((i + 1) * 0.25)
+    const i = Math.round((this.camera.zoom * 100) / 5)
+    const nextZoom = TLDR.getCameraZoom((i + 1) * 0.05)
     return this.zoomTo(nextZoom)
   }
 
@@ -2534,8 +2534,8 @@ export class TldrawApp extends StateManager<TDSnapshot> {
    * Zoom in by 25%.
    */
   zoomOut = (): this => {
-    const i = Math.round((this.camera.zoom * 100) / 25)
-    const nextZoom = TLDR.getCameraZoom((i - 1) * 0.25)
+    const i = Math.round((this.camera.zoom * 100) / 5)
+    const nextZoom = TLDR.getCameraZoom((i - 1) * 0.05)
     return this.zoomTo(nextZoom)
   }
 

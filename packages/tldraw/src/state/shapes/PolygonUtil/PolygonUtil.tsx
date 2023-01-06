@@ -13,7 +13,7 @@ type E = SVGSVGElement
 export class PolygonUtil extends TDShapeUtil<T, E> {
   type = TDShapeType.Polygon as const
 
-  // hideBounds = true;
+  hideBounds = true;
   hideResizeHandles = true
   canEdit = true
   canBind = false
@@ -32,7 +32,6 @@ export class PolygonUtil extends TDShapeUtil<T, E> {
       point: [0, 0],
       size: [1, 1],
       rotation: 0,
-      handles: {},
       style: {
         ...defaultStyle,
         isFilled: false,
@@ -97,21 +96,24 @@ export class PolygonUtil extends TDShapeUtil<T, E> {
         ]
         const p1 = Vec.add(offset, deltaPoints[0])
         const p2 = Vec.add(offset, deltaPoints[1])
+
         return (
-          <SVGContainer ref={ref} {...events}>
-            <line
-              x1={p1[0]}
-              y1={p1[1]}
-              x2={p2[0]}
-              y2={p2[1]}
-              pointerEvents="all"
-              stroke={stroke}
-              strokeWidth={sw}
-              strokeDasharray={strokeDasharray}
-              strokeDashoffset={strokeDashoffset}
-              opacity={isGhost ? GHOSTED_OPACITY : 1}
-            />
-          </SVGContainer>
+            <>
+              <SVGContainer ref={ref} {...events}>
+                <line
+                  x1={p1[0]}
+                  y1={p1[1]}
+                  x2={p2[0]}
+                  y2={p2[1]}
+                  pointerEvents="all"
+                  stroke={stroke}
+                  strokeWidth={sw}
+                  strokeDasharray={strokeDasharray}
+                  strokeDashoffset={strokeDashoffset}
+                  opacity={isGhost ? GHOSTED_OPACITY : 1}
+                />
+              </SVGContainer>
+            </>
         )
       } else {
         const bounds = Utils.getBoundsFromPoints(deltaPoints)
