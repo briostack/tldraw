@@ -1,6 +1,6 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { CheckIcon, ClipboardIcon } from '@radix-ui/react-icons'
-import { Utils } from '@tldraw/core'
+import { Utils } from '@briostack/core'
 import * as React from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Divider } from '~components/Primitives/Divider'

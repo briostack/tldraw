@@ -1,4 +1,4 @@
-import type { TLPerformanceMode } from '@tldraw/core'
+import type { TLPerformanceMode } from '@briostack/core'
 import type { TldrawApp } from '~state/TldrawApp'
 import type { SessionType, TldrawCommand, TldrawPatch } from '~types'
 

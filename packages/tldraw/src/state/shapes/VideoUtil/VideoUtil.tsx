@@ -1,5 +1,5 @@
 import { styled } from '@stitches/react'
-import { HTMLContainer, Utils } from '@tldraw/core'
+import { HTMLContainer, Utils } from '@briostack/core'
 import * as React from 'react'
 import { GHOSTED_OPACITY } from '~constants'
 import { TDShapeUtil } from '~state/shapes/TDShapeUtil'

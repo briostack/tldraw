@@ -1,4 +1,4 @@
-import {TLPointerInfo, Utils} from '@tldraw/core'
+import {TLPointerInfo, Utils} from '@briostack/core'
 import { TLDR } from '~state/TLDR'
 import type { TldrawApp } from '~state/TldrawApp'
 import { BaseSession } from '~state/sessions/BaseSession'
@@ -39,12 +39,23 @@ export class PolygonSession extends BaseSession {
       currentPoint,
     } = this.app
 
-    if (!info) return undefined
+    if (!info || typeof info === 'undefined') return undefined
     const shape = this.app.getShape<PolygonShape>(initialShape.id)
-    const [shapeId, index] = info?.target.split('_')
-    const delta = Vec.sub(shape.origPoint || [0,0], shape.point)
     const newPoints = shape.points
-    newPoints[parseInt(index)] = Vec.add(currentPoint, delta)
+    if (info?.target.includes('_mid_')) {
+      const [shapeId, index] = info?.target.split('_mid_')
+      const newIndex = parseInt(index)
+      if (newIndex === newPoints.length - 1) {
+        newPoints.splice(newIndex, 0, Vec.med(shape.points[newIndex], shape.points[0]))
+      } else {
+        newPoints.splice(newIndex + 1, 0, Vec.med(shape.points[newIndex], shape.points[newIndex + 1]))
+      }
+    } else {
+      const [shapeId, index] = info?.target.split('_')
+      const delta = Vec.sub(shape.origPoint || [0,0], shape.point)
+      newPoints[parseInt(index)] = Vec.add(currentPoint, delta)
+      // console.log('new points', newPoints)
+    }
     return {
       document: {
         pages: {

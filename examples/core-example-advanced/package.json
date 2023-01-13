@@ -21,7 +21,7 @@
   "dependencies": {
     "@state-designer/react": "^3.0.0",
     "@stitches/react": "^1.2.8",
-    "@tldraw/core": "*",
+    "@briostack/core": "*",
     "@tldraw/intersect": "*",
     "@tldraw/vec": "*",
     "immer": "^9.0.12",

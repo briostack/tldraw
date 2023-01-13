@@ -12,7 +12,7 @@ import {
   TLShapeCloneHandler,
   TLWheelEventHandler,
   Utils,
-} from '@tldraw/core'
+} from '@briostack/core'
 import { Vec } from '@tldraw/vec'
 import {
   FIT_TO_SCREEN_PADDING,
@@ -2449,6 +2449,22 @@ export class TldrawApp extends StateManager<TDSnapshot> {
     }
   }
 
+  exportDocumentAsImage = async (
+      format: Exclude<TDExportType, TDExportType.JSON> = TDExportType.PNG,
+      opts = {} as Partial<{
+        ids: string[]
+        pageId: string
+        scale: number
+        quality: number
+      }>
+  ): Promise<Blob | undefined> => {
+    const blob = await this.getImage(format, opts)
+
+    if (!blob) return
+
+    return blob;
+  }
+
   /* -------------------------------------------------- */
   /*                       Camera                       */
   /* -------------------------------------------------- */
@@ -3753,6 +3769,11 @@ export class TldrawApp extends StateManager<TDSnapshot> {
     this.altKey = info.altKey
     this.ctrlKey = info.ctrlKey
     this.metaKey = info.metaKey
+  }
+
+  onPointerClick = (id: string) => {
+    // this.updateInputs(info, e)
+    this.currentTool.onPointerClick?.(id)
   }
 
   onPointerMove: TLPointerEventHandler = (info, e) => {

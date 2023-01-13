@@ -1,4 +1,4 @@
-import { TLPointerEventHandler, Utils } from '@tldraw/core'
+import { TLPointerEventHandler, Utils } from '@briostack/core'
 import { Draw } from '~state/shapes'
 import { BaseTool } from '~state/tools/BaseTool'
 import { SessionType, TDShapeType } from '~types'

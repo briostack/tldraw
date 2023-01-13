@@ -18,7 +18,7 @@ import type {
   TLSnapLine,
   TLUser,
   TLWheelEventHandler,
-} from '@tldraw/core'
+} from '@briostack/core'
 import { TDLanguage } from '~translations'
 
 /* -------------------------------------------------- */

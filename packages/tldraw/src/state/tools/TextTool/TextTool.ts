@@ -1,4 +1,4 @@
-import type { TLKeyboardEventHandler, TLPointerEventHandler } from '@tldraw/core'
+import type { TLKeyboardEventHandler, TLPointerEventHandler } from '@briostack/core'
 import Vec from '@tldraw/vec'
 import { BaseTool, Status } from '~state/tools/BaseTool'
 import { TDShapeType } from '~types'

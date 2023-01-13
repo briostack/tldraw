@@ -5,10 +5,10 @@ import {
   TLBoundsHandleEventHandler,
   TLCanvasEventHandler,
   TLKeyboardEventHandler,
-  TLPointerEventHandler,
+  TLPointerEventHandler, TLPointerInfo,
   TLShapeCloneHandler,
   Utils,
-} from '@tldraw/core'
+} from '@briostack/core'
 import Vec from '@tldraw/vec'
 import {CLONING_DISTANCE, DEAD_ZONE} from '~constants'
 import {TLDR} from '~state/TLDR'
@@ -32,6 +32,7 @@ enum Status {
   Brushing = 'brushing',
   GridCloning = 'gridCloning',
   ClonePainting = 'clonePainting',
+  AddingVertex = 'addingVertex',
 }
 
 export class SelectTool extends BaseTool<Status> {
@@ -242,6 +243,18 @@ export class SelectTool extends BaseTool<Status> {
   // Keyup is handled on BaseTool
 
   // Pointer Events (generic)
+
+  onPointerClick = (id: string) => {
+    const selectedShape = this.app.getShape(this.app.selectedIds[0])
+    const info = {
+      target: id
+    } as TLPointerInfo
+    this.setStatus(Status.AddingVertex)
+    this.app.startSession(SessionType.Polygon, selectedShape.id, false, info)
+    this.app.updateSession()
+    this.app.cancelSession()
+    // console.log('on click', selectedShape, info)
+  }
 
   onPointerMove: TLPointerEventHandler = (info) => {
     const { originPoint, currentPoint } = this.app

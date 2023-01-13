@@ -3,7 +3,7 @@ import {
   TLPinchEventHandler,
   TLPointerEventHandler,
   Utils,
-} from '@tldraw/core'
+} from '@briostack/core'
 import type { TldrawApp } from '~state/TldrawApp'
 import { TDEventHandler, TDToolType } from '~types'
 
@@ -121,6 +121,10 @@ export abstract class BaseTool<T extends string = any> extends TDEventHandler {
       }
     }
 
+    this.setStatus(Status.Idle)
+  }
+
+  onPointerClick = (id: string) => {
     this.setStatus(Status.Idle)
   }
 }

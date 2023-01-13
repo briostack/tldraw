@@ -1,6 +1,6 @@
 {
   "name": "@briostack/tldraw",
-  "version": "1.26.31",
+  "version": "1.26.36",
   "description": "A tiny little drawing app (editor)",
   "author": "@steveruizo",
   "repository": {
@@ -44,7 +44,7 @@
     "@radix-ui/react-popover": "^1.0.0",
     "@radix-ui/react-tooltip": "^1.0.0",
     "@stitches/react": "^1.2.8",
-    "@tldraw/core": "^1.20.1",
+    "@briostack/core": "^1.26.1",
     "@tldraw/intersect": "^1.8.0",
     "@tldraw/vec": "^1.8.0",
     "browser-fs-access": "^0.31.0",
@@ -60,7 +60,7 @@
     "@swc-node/jest": "^1.5.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@tldraw/core": "*",
+    "@briostack/core": "*",
     "@tldraw/intersect": "*",
     "@tldraw/lfg": "latest",
     "@tldraw/vec": "*",

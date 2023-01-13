@@ -1,4 +1,4 @@
-import { Utils } from '@tldraw/core'
+import { Utils } from '@briostack/core'
 import Vec from '@tldraw/vec'
 import getStroke, { getStrokePoints } from 'perfect-freehand'
 import { getOffsetPolygon, getShapeStyle } from '~state/shapes/shared'

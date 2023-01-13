@@ -5,7 +5,7 @@ import {
   TLBoundsWithCenter,
   TLSnapLine,
   Utils,
-} from '@tldraw/core'
+} from '@briostack/core'
 import { Vec } from '@tldraw/vec'
 import { SLOW_SPEED, SNAP_DISTANCE } from '~constants'
 import { TLDR } from '~state/TLDR'

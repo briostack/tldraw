@@ -1,4 +1,4 @@
-import { TLBounds, Utils } from '@tldraw/core'
+import { TLBounds, Utils } from '@briostack/core'
 import type { TldrawApp } from '~state/TldrawApp'
 import { BaseSession } from '~state/sessions/BaseSession'
 import { SessionType, TDStatus, TldrawCommand, TldrawPatch } from '~types'

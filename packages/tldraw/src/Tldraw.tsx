@@ -1,4 +1,4 @@
-import { CursorComponent, Renderer } from '@tldraw/core'
+import { CursorComponent, Renderer } from '@briostack/core'
 import * as React from 'react'
 import { ErrorBoundary as _Errorboundary } from 'react-error-boundary'
 import { IntlProvider } from 'react-intl'
@@ -531,6 +531,7 @@ const InnerTldraw = React.memo(function InnerTldraw({
                 onPinch={app.onPinch}
                 onPan={app.onPan}
                 onZoom={app.onZoom}
+                onPointerClick={app.onPointerClick}
                 onPointerDown={app.onPointerDown}
                 onPointerMove={app.onPointerMove}
                 onPointerUp={app.onPointerUp}

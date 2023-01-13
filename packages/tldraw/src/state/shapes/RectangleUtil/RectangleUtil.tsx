@@ -1,4 +1,4 @@
-import { SVGContainer, Utils } from '@tldraw/core'
+import { SVGContainer, Utils } from '@briostack/core'
 import * as React from 'react'
 import { GHOSTED_OPACITY, LABEL_POINT } from '~constants'
 import { TDShapeUtil } from '~state/shapes/TDShapeUtil'

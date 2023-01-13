@@ -1,4 +1,4 @@
-import { TLBoundsCorner, TLBoundsEdge, Utils } from '@tldraw/core'
+import { TLBoundsCorner, TLBoundsEdge, Utils } from '@briostack/core'
 import { TLDR } from '~state/TLDR'
 import { TldrawTestApp, mockDocument } from '~test'
 import { TDShapeType, TDStatus } from '~types'

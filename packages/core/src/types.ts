@@ -81,6 +81,7 @@ export interface TLShape {
   isAspectRatioLocked?: boolean
   points?: number[][]
   origPoint?: number[]
+  isComplete?: boolean
 }
 
 export interface TLComponentProps<T extends TLShape, E = any, M = any> {
@@ -190,6 +191,7 @@ export interface TLCallbacks<T extends TLShape> {
   onPointerMove: TLPointerEventHandler
   onPointerUp: TLPointerEventHandler
   onPointerDown: TLPointerEventHandler
+  onPointerClick: (id: string) => void
 
   // Canvas (background)
   onPointCanvas: TLCanvasEventHandler

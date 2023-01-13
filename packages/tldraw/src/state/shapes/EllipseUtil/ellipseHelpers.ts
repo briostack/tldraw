@@ -1,4 +1,4 @@
-import { Utils } from '@tldraw/core'
+import { Utils } from '@briostack/core'
 import { getStrokeOutlinePoints, getStrokePoints } from 'perfect-freehand'
 import { EASINGS } from '~constants'
 import { getShapeStyle } from '~state/shapes/shared'

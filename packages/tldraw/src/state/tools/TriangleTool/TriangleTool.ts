@@ -1,4 +1,4 @@
-import { TLBoundsCorner, TLPointerEventHandler, Utils } from '@tldraw/core'
+import { TLBoundsCorner, TLPointerEventHandler, Utils } from '@briostack/core'
 import Vec from '@tldraw/vec'
 import { Triangle } from '~state/shapes'
 import { BaseTool, Status } from '~state/tools/BaseTool'

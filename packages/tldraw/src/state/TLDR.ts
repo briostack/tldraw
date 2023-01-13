@@ -1,4 +1,4 @@
-import { TLBounds, TLPageState, TLTransformInfo, Utils } from '@tldraw/core'
+import { TLBounds, TLPageState, TLTransformInfo, Utils } from '@briostack/core'
 import { intersectRayBounds, intersectRayEllipse, intersectRayLineSegment } from '@tldraw/intersect'
 import { Vec } from '@tldraw/vec'
 import { BINDING_DISTANCE } from '~constants'

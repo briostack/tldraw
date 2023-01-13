@@ -1,4 +1,4 @@
-import { TLBoundsCorner, Utils } from '@tldraw/core'
+import { TLBoundsCorner, Utils } from '@briostack/core'
 import { TLDR } from '~state/TLDR'
 import type { TldrawApp } from '~state/TldrawApp'
 import { FlipType } from '~types'

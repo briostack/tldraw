@@ -1,4 +1,4 @@
-import { Utils } from '@tldraw/core'
+import { Utils } from '@briostack/core'
 import * as React from 'react'
 import { getShapeStyle } from '~state/shapes/shared'
 import type { ShapeStyles } from '~types'

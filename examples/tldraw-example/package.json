@@ -21,7 +21,7 @@
   "dependencies": {
     "@liveblocks/client": "^0.17.7",
     "@liveblocks/react": "^0.17.7",
-    "@tldraw/core": "*",
+    "@briostack/core": "*",
     "@briostack/tldraw": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

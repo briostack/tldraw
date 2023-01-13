@@ -1,16 +1,18 @@
 import * as React from 'react'
 import { Container } from '~components/Container'
 import { SVGContainer } from '~components/SVGContainer'
-import { useHandleEvents } from '~hooks'
+import {useHandleEvents, useMiddlePointEvents} from '~hooks'
 import Utils from '~utils'
 
 interface HandleProps {
-  id: string
-  point: number[]
+    id: string
+    point: number[]
+    isMidPoint?:boolean
+    radio?: number
 }
 
-function _Handle({ id, point }: HandleProps) {
-  const events = useHandleEvents(id)
+function _Handle({ id, point, isMidPoint = false, radio = 4 }: HandleProps) {
+    const events = isMidPoint ? useMiddlePointEvents(id) : useHandleEvents(id)
 
   return (
     <Container
@@ -25,11 +27,12 @@ function _Handle({ id, point }: HandleProps) {
         },
         point
       )}
+      style={{ zIndex: radio }}
     >
       <SVGContainer>
-        <g className="tl-handle" aria-label="handle" {...events}>
+        <g className="tl-handle" aria-label="handle" data-id={id} {...events}>
           <circle className="tl-handle-bg" pointerEvents="all" />
-          <circle className="tl-counter-scaled tl-handle" pointerEvents="none" r={4} />
+          <circle className="tl-counter-scaled tl-handle" pointerEvents="none" r={radio} />
         </g>
       </SVGContainer>
     </Container>

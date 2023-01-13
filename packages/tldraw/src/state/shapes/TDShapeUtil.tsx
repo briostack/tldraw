@@ -1,5 +1,5 @@
-import { TLShapeUtil, Utils } from '@tldraw/core'
-import type { TLBounds, TLPointerInfo } from '@tldraw/core'
+import { TLShapeUtil, Utils } from '@briostack/core'
+import type { TLBounds, TLPointerInfo } from '@briostack/core'
 import {
   intersectLineSegmentBounds,
   intersectLineSegmentPolyline,

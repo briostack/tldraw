@@ -7,7 +7,7 @@ import { ShapeNode } from '~components/Shape'
 import { ShapeIndicator } from '~components/ShapeIndicator'
 import { useSelection, useShapeTree, useTLContext } from '~hooks'
 import type { TLAssets, TLBinding, TLPage, TLPageState, TLShape } from '~types'
-import {PolygonHandles} from "~components/PolygonHandles/PolygonHandles";
+import {PolygonHandles} from "~components/PolygonHandles";
 
 export interface PageProps<T extends TLShape, M extends Record<string, unknown>> {
   page: TLPage<T, TLBinding>
@@ -72,7 +72,7 @@ function _Page<T extends TLShape, M extends Record<string, unknown>>({
     if (shape.handles !== undefined && !_isEditing) {
       shapeWithHandles = shape
     }
-    if (shape.type === 'polygon' && !_isEditing) {
+    if (shape.type === 'polygon' && !_isEditing && shape.isComplete) {
       _isPolygon = true
       polygonShape = shape
     }

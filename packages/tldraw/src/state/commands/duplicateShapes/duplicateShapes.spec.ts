@@ -1,4 +1,4 @@
-import { Utils } from '@tldraw/core'
+import { Utils } from '@briostack/core'
 import { TLDR } from '~state/TLDR'
 import { TldrawTestApp, mockDocument } from '~test'
 import { ArrowShape, SessionType, TDShapeType } from '~types'

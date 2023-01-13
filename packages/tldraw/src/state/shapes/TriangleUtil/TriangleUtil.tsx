@@ -1,4 +1,4 @@
-import { SVGContainer, TLBounds, Utils } from '@tldraw/core'
+import { SVGContainer, TLBounds, Utils } from '@briostack/core'
 import {
   intersectBoundsPolygon,
   intersectLineSegmentPolyline,

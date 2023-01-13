@@ -1,4 +1,4 @@
-import { SVGContainer, TLBounds, Utils } from '@tldraw/core'
+import { SVGContainer, TLBounds, Utils } from '@briostack/core'
 import { Vec } from '@tldraw/vec'
 import * as React from 'react'
 import { GHOSTED_OPACITY, LABEL_POINT } from '~constants'

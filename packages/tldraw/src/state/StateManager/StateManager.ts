@@ -1,4 +1,4 @@
-import { Utils } from '@tldraw/core'
+import { Utils } from '@briostack/core'
 import * as idb from 'idb-keyval'
 import create, { UseBoundStore } from 'zustand'
 import createVanilla, { StoreApi } from 'zustand/vanilla'

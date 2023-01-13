@@ -1,4 +1,4 @@
-import { TLBoundsCorner, TLBoundsEdge, TLBoundsHandle, inputs } from '@tldraw/core'
+import { TLBoundsCorner, TLBoundsEdge, TLBoundsHandle, inputs } from '@briostack/core'
 import { TldrawApp } from '~state'
 import type { TDShape } from '~types'
 
