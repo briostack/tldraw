@@ -13,19 +13,19 @@ import {
   TLWheelEventHandler,
   Utils,
 } from '@briostack/core'
-import { Vec } from '@tldraw/vec'
+import {Vec} from '@tldraw/vec'
 import {
   FIT_TO_SCREEN_PADDING,
   GRID_SIZE,
   IMAGE_EXTENSIONS,
+  isLinux,
   SVG_EXPORT_PADDING,
   USER_COLORS,
   VIDEO_EXTENSIONS,
-  isLinux,
 } from '~constants'
-import { DialogState } from '~hooks'
-import { shapeUtils } from '~state/shapes'
-import { defaultStyle } from '~state/shapes/shared'
+import {DialogState} from '~hooks'
+import {shapeUtils} from '~state/shapes'
+import {defaultStyle} from '~state/shapes/shared'
 import {
   AlignStyle,
   AlignType,
@@ -38,8 +38,8 @@ import {
   ShapeStyles,
   StretchType,
   TDAsset,
-  TDAssetType,
   TDAssets,
+  TDAssetType,
   TDBinding,
   TDDocument,
   TDExport,
@@ -55,10 +55,10 @@ import {
   TldrawCommand,
   TldrawPatch,
 } from '~types'
-import { getClipboard, setClipboard } from './IdbClipboard'
-import { StateManager } from './StateManager'
-import { deepCopy } from './StateManager/copy'
-import { TLDR } from './TLDR'
+import {getClipboard, setClipboard} from './IdbClipboard'
+import {StateManager} from './StateManager'
+import {deepCopy} from './StateManager/copy'
+import {TLDR} from './TLDR'
 import * as Commands from './commands'
 import {
   fileToBase64,
@@ -71,20 +71,20 @@ import {
   openFromFileSystem,
   saveToFileSystem,
 } from './data'
-import { SessionArgsOfType, TldrawSession, getSession } from './sessions'
-import { clearPrevSize } from './shapes/shared/getTextSize'
-import { ArrowTool } from './tools/ArrowTool'
-import type { BaseTool } from './tools/BaseTool'
-import { DrawTool } from './tools/DrawTool'
-import { EllipseTool } from './tools/EllipseTool'
-import { EraseTool } from './tools/EraseTool'
-import { LineTool } from './tools/LineTool'
-import { PolygonTool } from './tools/PolygonTool'
-import { RectangleTool } from './tools/RectangleTool'
-import { SelectTool } from './tools/SelectTool'
-import { StickyTool } from './tools/StickyTool'
-import { TextTool } from './tools/TextTool'
-import { TriangleTool } from './tools/TriangleTool'
+import {getSession, SessionArgsOfType, TldrawSession} from './sessions'
+import {clearPrevSize} from './shapes/shared/getTextSize'
+import {ArrowTool} from './tools/ArrowTool'
+import type {BaseTool} from './tools/BaseTool'
+import {DrawTool} from './tools/DrawTool'
+import {EllipseTool} from './tools/EllipseTool'
+import {EraseTool} from './tools/EraseTool'
+import {LineTool} from './tools/LineTool'
+import {PolygonTool} from './tools/PolygonTool'
+import {RectangleTool} from './tools/RectangleTool'
+import {SelectTool} from './tools/SelectTool'
+import {StickyTool} from './tools/StickyTool'
+import {TextTool} from './tools/TextTool'
+import {TriangleTool} from './tools/TriangleTool'
 
 const uuid = Utils.uniqueId()
 
@@ -2360,7 +2360,7 @@ export class TldrawApp extends StateManager<TDSnapshot> {
       opts
 
     const svg = await this.getSvg(ids, {
-      includeFonts: format !== TDExportType.SVG,
+      includeFonts: false, // format !== TDExportType.SVG,
     })
 
     if (!svg) return

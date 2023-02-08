@@ -45,11 +45,12 @@ export function migrate(state: TDSnapshot, newVersion: number): TDSnapshot {
     })
   )
 
-  Object.keys(document.assets).forEach((assetId) => {
-    if (!assetIdsInUse.has(assetId)) {
-      delete document.assets[assetId]
-    }
-  })
+  // Commenting this section to prevent tldraw to remove unused assets
+  // Object.keys(document.assets).forEach((assetId) => {
+  //   if (!assetIdsInUse.has(assetId)) {
+  //     delete document.assets[assetId]
+  //   }
+  // })
 
   if (version !== newVersion) {
     if (version < 14) {
