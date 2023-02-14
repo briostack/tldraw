@@ -15,7 +15,7 @@ import { EraserIcon } from '~components/Primitives/icons'
 import { breakpoints } from '~components/breakpoints'
 import { useTldrawApp } from '~hooks'
 import { styled } from '~styles/stitches.config'
-import { TDShapeType, TDSnapshot } from '~types'
+import {StationIconType, TDShapeType, TDSnapshot} from '~types'
 import { ShapesMenu } from './ShapesMenu'
 
 const activeToolSelector = (s: TDSnapshot) => s.appState.activeTool

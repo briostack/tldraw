@@ -297,6 +297,7 @@ export enum TDShapeType {
   Group = 'group',
   Image = 'image',
   Video = 'video',
+  Svg = 'svg',
 }
 
 export enum Decoration {
@@ -413,6 +414,12 @@ export interface GroupShape extends TDBaseShape {
   children: string[]
 }
 
+export interface SvgShape extends TDBaseShape {
+  type: TDShapeType.Svg
+  size: number[]
+  status: string,
+}
+
 // A union of all shapes
 export type TDShape =
   | RectangleShape
@@ -426,6 +433,7 @@ export type TDShape =
   | StickyShape
   | ImageShape
   | VideoShape
+  | SvgShape
 
 /* ------------------ Shape Styles ------------------ */
 
@@ -604,4 +612,14 @@ export interface FileSystemHandle {
 
   queryPermission: (descriptor?: FileSystemHandlePermissionDescriptor) => Promise<PermissionState>
   requestPermission: (descriptor?: FileSystemHandlePermissionDescriptor) => Promise<PermissionState>
+}
+
+/* -------------------------------------------------- */
+/*                    Stations                        */
+/* -------------------------------------------------- */
+
+export enum StationIconType {
+  INSPECTED = 'inspected',
+  UNINSPECTED = 'uninspected',
+  CREATED = 'created',
 }

@@ -5,7 +5,7 @@ import {
   PagePartial,
   SessionType,
   TDBinding,
-  TDShape,
+  TDShape, TDShapeType,
   TDStatus,
   TldrawCommand,
   TldrawPatch,
@@ -28,7 +28,7 @@ export class EraseSession extends BaseSession {
     super(app)
     this.prevPoint = [...app.originPoint]
     this.initialSelectedShapes = this.app.selectedIds.map((id) => this.app.getShape(id))
-    this.erasableShapes = new Set(this.app.shapes.filter((shape) => !shape.isLocked))
+    this.erasableShapes = new Set(this.app.shapes.filter((shape) => !shape.isLocked).filter((shape) => shape.type !== TDShapeType.Image && shape.type !== TDShapeType.Svg))
     this.interval = this.loop()
   }
 

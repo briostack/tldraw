@@ -1,8 +1,8 @@
-import type { TLPointerEventHandler } from '@briostack/core'
+import type {TLPointerEventHandler} from '@briostack/core'
 import Vec from '@tldraw/vec'
-import { DEAD_ZONE } from '~constants'
-import { BaseTool } from '~state/tools/BaseTool'
-import { SessionType } from '~types'
+import {DEAD_ZONE} from '~constants'
+import {BaseTool} from '~state/tools/BaseTool'
+import {SessionType, TDShapeType} from '~types'
 
 enum Status {
   Idle = 'idle',
@@ -49,7 +49,7 @@ export class EraseTool extends BaseTool {
           .filter((shape) => !shape.isLocked)
           .filter((shape) =>
             this.app.getShapeUtil(shape).hitTestPoint(shape, this.app.currentPoint)
-          )
+          ).filter((shape) => shape.type !== TDShapeType.Image && shape.type !== TDShapeType.Svg)
           .flatMap((shape) => (shape.children ? [shape.id, ...shape.children] : shape.id))
 
         this.app.delete(shapeIdsAtPoint)

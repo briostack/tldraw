@@ -160,6 +160,7 @@ export function Tldraw({
   onSessionEnd,
   onExport,
   hideCursors,
+    onStationSelect,
 }: TldrawProps) {
   const [sId, setSId] = React.useState(id)
 
@@ -185,6 +186,7 @@ export function Tldraw({
       onAssetUpload,
       onSessionStart,
       onSessionEnd,
+      onStationSelect,
     })
     return app
   })
@@ -228,6 +230,7 @@ export function Tldraw({
       onExport,
       onSessionStart,
       onSessionEnd,
+      onStationSelect,
     })
 
     setSId(id)
@@ -298,6 +301,7 @@ export function Tldraw({
       onExport,
       onSessionStart,
       onSessionEnd,
+      onStationSelect,
     }
   }, [
     onMount,
@@ -320,6 +324,7 @@ export function Tldraw({
     onExport,
     onSessionStart,
     onSessionEnd,
+      onStationSelect,
   ])
 
   React.useLayoutEffect(() => {

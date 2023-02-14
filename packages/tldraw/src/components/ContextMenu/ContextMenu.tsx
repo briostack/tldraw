@@ -264,10 +264,10 @@ const InnerMenu = React.memo(function InnerMenu() {
               </CMRowButton>
             )}
           </ContextMenuSubMenu>
-          <Divider />
-          <CMRowButton onClick={handleDelete} kbd="⌫" id="TD-ContextMenu-Delete">
-            <FormattedMessage id="delete" />
-          </CMRowButton>
+          {/*<Divider />*/}
+          {/*<CMRowButton onClick={handleDelete} kbd="⌫" id="TD-ContextMenu-Delete">*/}
+          {/*  <FormattedMessage id="delete" />*/}
+          {/*</CMRowButton>*/}
         </>
       ) : (
         <>

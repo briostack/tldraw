@@ -3,6 +3,7 @@ import { Vec } from '@tldraw/vec'
 import { TLDR } from '~state/TLDR'
 import type { TldrawApp } from '~state/TldrawApp'
 import type { PagePartial, TDShape, TldrawCommand } from '~types'
+import {TDShapeType} from "~types";
 
 export function duplicateShapes(app: TldrawApp, ids: string[], point?: number[]): TldrawCommand {
   const { selectedIds, currentPageId, page, shapes } = app
@@ -22,6 +23,7 @@ export function duplicateShapes(app: TldrawApp, ids: string[], point?: number[])
   const shapesToDuplicate = ids
     .map((id) => app.getShape(id))
     .filter((shape) => !ids.includes(shape.parentId))
+      .filter((shape) => shape.type !== TDShapeType.Image && shape.type !== TDShapeType.Svg)
 
   // Create duplicates
   shapesToDuplicate.forEach((shape) => {

@@ -21,13 +21,17 @@ export default function Develop() {
     // })
   }, [])
 
+  const handleStationSelect = React.useCallback((app: TldrawApp, shapeId: string) => {
+    console.log(shapeId);
+  }, []);
+
   const handlePersist = React.useCallback(() => {
     // noop
   }, [])
 
   return (
     <div className="tldraw">
-      <Tldraw id="develop" {...fileSystemEvents} onMount={handleMount} onPersist={handlePersist} />
+      <Tldraw id="develop" {...fileSystemEvents} onMount={handleMount} onPersist={handlePersist} onStationSelect={handleStationSelect} />
     </div>
   )
 }

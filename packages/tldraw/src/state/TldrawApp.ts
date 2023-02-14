@@ -193,6 +193,8 @@ export interface TDCallbacks {
    * (optional) A callback to run when a session ends.
    */
   onSessionEnd?: (app: TldrawApp, id: string) => void
+
+  onStationSelect?: (app: TldrawApp, shapeId: string) => void
 }
 
 export class TldrawApp extends StateManager<TDSnapshot> {
