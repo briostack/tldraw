@@ -1,4 +1,4 @@
-import {StationIconType, SvgShape, TDMeta, TDShapeType} from "~types";
+import { SvgShape, TDMeta, TDShapeType} from "~types";
 import {TDShapeUtil} from "~state/shapes/TDShapeUtil";
 import {HTMLContainer, Utils} from "@briostack/core";
 import {defaultStyle, getBoundsRectangle, transformRectangle, transformSingleRectangle} from "~state/shapes/shared";
@@ -10,12 +10,6 @@ import {useTldrawApp} from "~hooks";
 
 type T = SvgShape
 type E = HTMLDivElement
-
-const STATION_ICONS = {
-    [StationIconType.CREATED]: <StationIcon fill="#46B2E5" />,
-    [StationIconType.INSPECTED]: <StationIcon fill="green" />,
-    [StationIconType.UNINSPECTED]: <StationIcon fill="red" />,
-}
 
 export class SvgUtil extends TDShapeUtil<T, E> {
     type = TDShapeType.Svg as const
@@ -42,7 +36,7 @@ export class SvgUtil extends TDShapeUtil<T, E> {
                 size: [1, 1],
                 rotation: 0,
                 style: { ...defaultStyle, isFilled: true },
-                status: 'created',
+                status: '#46B2E5',
             },
             props
         )
@@ -53,8 +47,11 @@ export class SvgUtil extends TDShapeUtil<T, E> {
             const app = useTldrawApp()
             const { size, style, status } = shape
             const { bindingDistance } = this
+            const delta = 6
 
             const rWrapper = React.useRef<HTMLDivElement>(null)
+            const startX = React.useRef(0);
+            const startY = React.useRef(0);
 
             React.useLayoutEffect(() => {
                 const wrapper = rWrapper.current
@@ -64,8 +61,27 @@ export class SvgUtil extends TDShapeUtil<T, E> {
                 wrapper.style.height = `${height}px`
             }, [size])
 
+            const handleMouseDown = React.useCallback((e: React.MouseEvent) => {
+                startX.current = e.pageX
+                startY.current = e.pageY
+            }, [])
+
+            const handleMouseUp = React.useCallback((e: React.MouseEvent) => {
+                const diffX = Math.abs(e.pageX - startX.current);
+                const diffY = Math.abs(e.pageY - startY.current);
+
+                if (diffX < delta && diffY < delta) {
+                    app.callbacks.onStationSelect?.(app, shape.id)
+                }
+            }, [])
+
             return (
-                <HTMLContainer ref={ref} {...events} onClick={ () => app.callbacks.onStationSelect?.(app, shape.id)} onContextMenu={(event) => event.preventDefault()}>
+                <HTMLContainer
+                    ref={ref} {...events}
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
+                    onContextMenu={(event) => event.preventDefault()}
+                >
                     {isBinding && (
                         <div
                             className="tl-binding-indicator"
@@ -85,7 +101,7 @@ export class SvgUtil extends TDShapeUtil<T, E> {
                         isFilled={style.isFilled}
                         isGhost={isGhost}
                     >
-                        {STATION_ICONS[status as StationIconType]}
+                        <StationIcon fill={status} stroke={status} />
                     </Wrapper>
                 </HTMLContainer>
             )
@@ -145,22 +161,4 @@ const Wrapper = styled('div', {
             false: {},
         },
     },
-    compoundVariants: [
-        {
-            isFilled: true,
-            isDarkMode: true,
-            css: {
-                boxShadow:
-                    '2px 3px 12px -2px rgba(0,0,0,.3), 1px 1px 4px rgba(0,0,0,.3), 1px 1px 2px rgba(0,0,0,.3)',
-            },
-        },
-        {
-            isFilled: true,
-            isDarkMode: false,
-            css: {
-                boxShadow:
-                    '2px 3px 12px -2px rgba(0,0,0,.2), 1px 1px 4px rgba(0,0,0,.16),  1px 1px 2px rgba(0,0,0,.16)',
-            },
-        },
-    ],
 })

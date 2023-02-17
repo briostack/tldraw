@@ -1,6 +1,6 @@
 {
   "name": "@briostack/tldraw",
-  "version": "1.26.42",
+  "version": "1.26.45",
   "description": "A tiny little drawing app (editor)",
   "author": "@steveruizo",
   "repository": {
@@ -36,6 +36,11 @@
     "react-dom": ">=16.8"
   },
   "dependencies": {
+    "@fontsource/caveat-brush": "^4.5.9",
+    "@fontsource/crimson-pro": "^4.5.10",
+    "@fontsource/recursive": "^4.5.11",
+    "@fontsource/source-code-pro": "^4.5.12",
+    "@fontsource/source-sans-pro": "^4.5.11",
     "@radix-ui/react-alert-dialog": "^1.0.0",
     "@radix-ui/react-context-menu": "^1.0.0",
     "@radix-ui/react-dialog": "^1.0.0",
@@ -54,7 +59,7 @@
     "react-hotkeys-hook": "^3.4.7",
     "react-intl": "^6.1.1",
     "tslib": "^2.4.0",
-    "zustand": "^4.1.1"
+    "zustand": "^4.3.2"
   },
   "devDependencies": {
     "@swc-node/jest": "^1.5.2",
@@ -94,6 +99,7 @@
       "<rootDir>/dist/"
     ],
     "moduleNameMapper": {
+      "@fontsource/*": "<rootDir>/src/test/stylemock.ts",
       "@tldraw/tldraw": "<rootDir>/src",
       "\\~(.*)": "<rootDir>/src/$1"
     }

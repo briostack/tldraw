@@ -85,6 +85,7 @@ import {SelectTool} from './tools/SelectTool'
 import {StickyTool} from './tools/StickyTool'
 import {TextTool} from './tools/TextTool'
 import {TriangleTool} from './tools/TriangleTool'
+import {TldrawAssets} from "~state/TldrawAssets";
 
 const uuid = Utils.uniqueId()
 
@@ -921,8 +922,8 @@ export class TldrawApp extends StateManager<TDSnapshot> {
       minY,
       maxX,
       maxY,
-      height: maxX - minX,
-      width: maxY - minY,
+      width: maxX - minX,
+      height: maxY - minY,
     }
   }
 
@@ -2010,7 +2011,7 @@ export class TldrawApp extends StateManager<TDSnapshot> {
 
     if (opts.includeFonts) {
       try {
-        const { fonts } = await fetch(TldrawApp.assetSrc, { mode: 'no-cors' }).then((d) => d.json())
+        const { fonts } = TldrawAssets(); // await fetch(TldrawApp.assetSrc, { mode: 'no-cors' }).then((d) => d.json())
 
         style.textContent = `
           @font-face {
@@ -2362,7 +2363,7 @@ export class TldrawApp extends StateManager<TDSnapshot> {
       opts
 
     const svg = await this.getSvg(ids, {
-      includeFonts: false, // format !== TDExportType.SVG,
+      includeFonts: format !== TDExportType.SVG,
     })
 
     if (!svg) return
@@ -4221,7 +4222,7 @@ export class TldrawApp extends StateManager<TDSnapshot> {
       showRotateHandles: false,
       showBindingHandles: true,
       showCloneHandles: false,
-      showGrid: false,
+      showGrid: true,
       language: 'en',
       dockPosition: 'bottom',
       exportBackground: TDExportBackground.Transparent,

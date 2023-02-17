@@ -1,7 +1,7 @@
 import { Utils } from '@briostack/core'
 import * as idb from 'idb-keyval'
-import create, { UseBoundStore } from 'zustand'
-import createVanilla, { StoreApi } from 'zustand/vanilla'
+import { UseBoundStore, create } from 'zustand'
+import { StoreApi, createStore } from 'zustand/vanilla'
 import type { Command, Patch } from '~types'
 import { deepCopy } from './copy'
 
@@ -68,7 +68,7 @@ export class StateManager<T extends Record<string, any>> {
     this._state = deepCopy(initialState)
     this._snapshot = deepCopy(initialState)
     this.initialState = deepCopy(initialState)
-    this.store = createVanilla(() => this._state)
+    this.store = createStore(() => this._state)
     this.useStore = create(this.store)
 
     this.ready = new Promise<'none' | 'restored' | 'migrated'>((resolve) => {

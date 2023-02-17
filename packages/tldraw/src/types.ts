@@ -613,13 +613,3 @@ export interface FileSystemHandle {
   queryPermission: (descriptor?: FileSystemHandlePermissionDescriptor) => Promise<PermissionState>
   requestPermission: (descriptor?: FileSystemHandlePermissionDescriptor) => Promise<PermissionState>
 }
-
-/* -------------------------------------------------- */
-/*                    Stations                        */
-/* -------------------------------------------------- */
-
-export enum StationIconType {
-  INSPECTED = 'inspected',
-  UNINSPECTED = 'uninspected',
-  CREATED = 'created',
-}

@@ -1,3 +1,8 @@
+import '@fontsource/caveat-brush'
+import '@fontsource/crimson-pro'
+import '@fontsource/recursive'
+import '@fontsource/source-code-pro'
+import '@fontsource/source-sans-pro'
 import { CursorComponent, Renderer } from '@briostack/core'
 import * as React from 'react'
 import { ErrorBoundary as _Errorboundary } from 'react-error-boundary'

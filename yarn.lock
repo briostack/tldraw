@@ -1432,6 +1432,31 @@
     "@floating-ui/dom" "^0.5.3"
     use-isomorphic-layout-effect "^1.1.1"
 
+"@fontsource/caveat-brush@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/caveat-brush/-/caveat-brush-4.5.9.tgz#5e2a23cc9344a911e0974a489dcc7976047b631e"
+  integrity sha512-H4uDBRSmTYX0Pman53VO8IP8JVnGd2wD4YyXHY0KTQX6jE0rs+UHuzraKGF8WTqBO7854VRCq09sPDhvLvqicQ==
+
+"@fontsource/crimson-pro@^4.5.10":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/crimson-pro/-/crimson-pro-4.5.11.tgz#41d2cf7a5270aedaaa22902f75cccc6f61437140"
+  integrity sha512-AQcsh0g6Tmh708JJYDmxV8itXu+k6ZFokETxJAxJVg0rj9Dz3p9QZWUqqWNfrjChJDL86yBDKyV3sB2BjW1XFg==
+
+"@fontsource/recursive@^4.5.11":
+  version "4.5.13"
+  resolved "https://registry.yarnpkg.com/@fontsource/recursive/-/recursive-4.5.13.tgz#4d3a61638ac5604ca049fd285d35fbe99fcccf04"
+  integrity sha512-d40oYxlkac4rrDo/4GkdvkUopyc7WzAlX0vAuUzKVqh7X1qZlSteckvQWdPnjEFMG599JiwKXJK7qXLvgvwdYg==
+
+"@fontsource/source-code-pro@^4.5.12":
+  version "4.5.14"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-code-pro/-/source-code-pro-4.5.14.tgz#97e7b889f485c56132925e3b5bd1cc114b67e163"
+  integrity sha512-EWE0djE7wFCBmExWa9oT1vIp+qj5MUroVvXWb9G7Ig4t4aXDd9QDidYZzMzNemb8gQxTdOzGmhx6EZnDTFMh5Q==
+
+"@fontsource/source-sans-pro@^4.5.11":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.5.11.tgz#06b3f08ef1a5250d78c8198e5a0482b5d87a4d52"
+  integrity sha512-f7iw44q1EjBv3MNcHCGAgrW/QVyweaEouFsJzykPhTOGnZFSwFJRISToXornOmuAy7xUUGiVdqOLiykgZoYB8A==
+
 "@formatjs/ecma402-abstract@1.12.0":
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/@formatjs/ecma402-abstract/-/ecma402-abstract-1.12.0.tgz#2fb5e8983d5fae2fad9ec6c77aec1803c2b88d8e"
@@ -10334,5 +10359,12 @@ zustand@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.1.1.tgz#5a61cc755a002df5f041840a414ae6e9a99ee22b"
   integrity sha512-h4F3WMqsZgvvaE0n3lThx4MM81Ls9xebjvrABNzf5+jb3/03YjNTSgZXeyrvXDArMeV9untvWXRw1tY+ntPYbA==
+  dependencies:
+    use-sync-external-store "1.2.0"
+
+zustand@^4.3.2:
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.3.3.tgz#c9113499074dde2d6d99c1b5f591e9329572c224"
+  integrity sha512-x2jXq8S0kfLGNwGh87nhRfEc2eZy37tSatpSoSIN+O6HIaBhgQHSONV/F9VNrNcBcKQu/E80K1DeHDYQC/zCrQ==
   dependencies:
     use-sync-external-store "1.2.0"
