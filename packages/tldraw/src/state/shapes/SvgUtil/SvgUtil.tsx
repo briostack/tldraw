@@ -1,12 +1,12 @@
 import { SvgShape, TDMeta, TDShapeType} from "~types";
 import {TDShapeUtil} from "~state/shapes/TDShapeUtil";
-import {HTMLContainer, Utils} from "@briostack/core";
+import {SVGContainer, Utils} from "@briostack/core";
 import {defaultStyle, getBoundsRectangle, transformRectangle, transformSingleRectangle} from "~state/shapes/shared";
 import * as React from "react";
 import {styled} from "@stitches/react";
 import {GHOSTED_OPACITY} from "~constants";
-import {StationIcon} from "~components/Primitives/icons/StationIcon";
 import {useTldrawApp} from "~hooks";
+import {StationIcon} from "~components/Primitives/icons/StationIcon";
 
 type T = SvgShape
 type E = HTMLDivElement
@@ -76,34 +76,20 @@ export class SvgUtil extends TDShapeUtil<T, E> {
             }, [])
 
             return (
-                <HTMLContainer
+                <Wrapper
                     ref={ref} {...events}
                     onMouseDown={handleMouseDown}
                     onMouseUp={handleMouseUp}
                     onContextMenu={(event) => event.preventDefault()}
                 >
-                    {isBinding && (
-                        <div
-                            className="tl-binding-indicator"
-                            style={{
-                                position: 'absolute',
-                                top: `calc(${-bindingDistance}px * var(--tl-zoom))`,
-                                left: `calc(${-bindingDistance}px * var(--tl-zoom))`,
-                                width: `calc(100% + ${bindingDistance * 2}px * var(--tl-zoom))`,
-                                height: `calc(100% + ${bindingDistance * 2}px * var(--tl-zoom))`,
-                                backgroundColor: 'var(--tl-selectFill)',
-                            }}
-                        />
-                    )}
-                    <Wrapper
-                        ref={rWrapper}
-                        isDarkMode={meta.isDarkMode} //
-                        isFilled={style.isFilled}
-                        isGhost={isGhost}
+                    <SVGContainer
+                        id={shape.id + '_svg'}
+                        fill={status}
+                        opacity={isGhost ? GHOSTED_OPACITY : 1}
                     >
                         <StationIcon fill={status} stroke={status} />
-                    </Wrapper>
-                </HTMLContainer>
+                    </SVGContainer>
+                </Wrapper>
             )
         }
     )

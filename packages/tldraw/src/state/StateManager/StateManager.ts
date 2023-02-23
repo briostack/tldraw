@@ -1,7 +1,6 @@
 import { Utils } from '@briostack/core'
 import * as idb from 'idb-keyval'
-import { UseBoundStore, create } from 'zustand'
-import { StoreApi, createStore } from 'zustand/vanilla'
+import { create } from 'zustand'
 import type { Command, Patch } from '~types'
 import { deepCopy } from './copy'
 
@@ -15,11 +14,6 @@ export class StateManager<T extends Record<string, any>> {
    * The initial state.
    */
   private initialState: T
-
-  /**
-   * A zustand store that also holds the state.
-   */
-  private store: StoreApi<T>
 
   /**
    * The index of the current command.
@@ -49,7 +43,7 @@ export class StateManager<T extends Record<string, any>> {
   /**
    * A React hook for accessing the zustand store.
    */
-  public readonly useStore: UseBoundStore<StoreApi<T>>
+  public readonly useStore
 
   /**
    * A promise that will resolve when the state manager has loaded any peristed state.
@@ -68,8 +62,7 @@ export class StateManager<T extends Record<string, any>> {
     this._state = deepCopy(initialState)
     this._snapshot = deepCopy(initialState)
     this.initialState = deepCopy(initialState)
-    this.store = createStore(() => this._state)
-    this.useStore = create(this.store)
+    this.useStore = create<T>(() => this._state)
 
     this.ready = new Promise<'none' | 'restored' | 'migrated'>((resolve) => {
       let message: 'none' | 'restored' | 'migrated' = 'none'
@@ -104,7 +97,7 @@ export class StateManager<T extends Record<string, any>> {
               this._snapshot = deepCopy(next)
 
               this._state.appState.isEmptyCanvas = prevEmpty
-              this.store.setState(this._state, true)
+              this.useStore.setState(this._state, true)
             } else {
               await idb.set(id + '_version', version || -1)
             }
@@ -153,7 +146,7 @@ export class StateManager<T extends Record<string, any>> {
       this.onStateWillChange(final, id)
     }
     this._state = final
-    this.store.setState(this._state, true)
+    this.useStore.setState(this._state, true)
     if (this.onStateDidChange) {
       this.onStateDidChange(this._state, id)
     }
@@ -219,7 +212,7 @@ export class StateManager<T extends Record<string, any>> {
       this.onStateWillChange(final, 'replace')
     }
     this._state = final
-    this.store.setState(this._state, true)
+    this.useStore.setState(this._state, true)
     if (this.onStateDidChange) {
       this.onStateDidChange(this._state, 'replace')
     }
@@ -309,7 +302,7 @@ export class StateManager<T extends Record<string, any>> {
       this.onStateWillChange(this.initialState, 'reset')
     }
     this._state = this.initialState
-    this.store.setState(this._state, true)
+    this.useStore.setState(this._state, true)
     this.resetHistory()
     this.persist({}, 'reset')
     if (this.onStateDidChange) {
@@ -390,7 +383,7 @@ export class StateManager<T extends Record<string, any>> {
    * Force the zustand state to update.
    */
   public forceUpdate = () => {
-    this.store.setState(this._state, true)
+    this.useStore.setState(this._state, true)
   }
 
   /**

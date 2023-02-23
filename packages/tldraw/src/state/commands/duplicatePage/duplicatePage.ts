@@ -1,6 +1,7 @@
-import { Utils } from '@briostack/core'
-import type { TldrawApp } from '~state/TldrawApp'
-import type { TldrawCommand } from '~types'
+import {Utils} from '@briostack/core'
+import type {TldrawApp} from '~state/TldrawApp'
+import type {TldrawCommand} from '~types'
+import {TDShapeType} from "~types";
 
 export function duplicatePage(app: TldrawApp, pageId: string): TldrawCommand {
   const {
@@ -20,7 +21,9 @@ export function duplicatePage(app: TldrawApp, pageId: string): TldrawCommand {
   ])
 
   const shapes = Object.fromEntries(
-    Object.entries(page.shapes).map(([id, shape]) => [
+    Object.entries(page.shapes)
+        .filter(([id, shape]) => shape.type !== TDShapeType.Svg && shape.type !== TDShapeType.Image)
+        .map(([id, shape]) => [
       oldToNewIds[id],
       {
         ...Utils.deepClone(shape),

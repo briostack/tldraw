@@ -60,14 +60,14 @@ export const PrimaryTools = React.memo(function PrimaryTools() {
   }, [app])
 
   const uploadMedias = React.useCallback(async () => {
-    // app.openAsset()
-    app.createShapes({
-      id: 'shapeId',
-      type: TDShapeType.Svg,
-      point: [200, 200],
-      size: [24, 24],
-      status: '#46B2E5',
-    });
+    app.openAsset()
+    // app.createShapes({
+    //   id: 'shapeId',
+    //   type: TDShapeType.Svg,
+    //   point: [200, 200],
+    //   size: [24, 24],
+    //   status: '#46B2E5',
+    // });
   }, [app])
 
   const panelStyle = dockPosition === 'bottom' || dockPosition === 'top' ? 'row' : 'column'
